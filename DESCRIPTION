@@ -14,3 +14,12 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 URL: https://github.com/geoffwlamb/checklist
 BugReports: https://github.com/geoffwlamb/checklist/issues
+Suggests: 
+    covr,
+    testthat
+Imports:
+    beepr,
+    here,
+    htmltools,
+    rstudioapi,
+    R6
