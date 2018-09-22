@@ -44,16 +44,17 @@ any customization, it will attempt to pick reasonable defaults. Customization
 after initialization is possible using the cl_set function.
 }
 \examples{
+\dontrun{
 # create a checklist with default settings
 my_checklist <- cl_create()
 
-# create a more personalized checklist
-my_custom_checklist <- cl_create(
+# create a customized checklist
+my_patriotic_checklist <- cl_create(
   title = "My Patriotic Checklist",
   sound = TRUE,
-  background.color = "Red",
-  text.color = "White",
-  complete.color = "Blue"
+  background.color = "red",
+  text.color = "white",
+  complete.color = "blue"
 )
 
 # create a pre-populated checklist
@@ -61,5 +62,6 @@ my_populated_checklist <- cl_create(
   tasks = c("make a checklist", "take over the world"),
   completed = c(TRUE, FALSE)
 )
+}
 
 }

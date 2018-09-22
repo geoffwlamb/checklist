@@ -22,6 +22,7 @@
 #' @return A Checklist object
 #' @export
 #' @examples
+#' \dontrun{
 #' # create a checklist with default settings
 #' my_checklist <- cl_create()
 #'
@@ -39,6 +40,7 @@
 #'   tasks = c("make a checklist", "take over the world"),
 #'   completed = c(TRUE, FALSE)
 #' )
+#' }
 #'
 cl_create <- function(
                       title = "Checklist",
