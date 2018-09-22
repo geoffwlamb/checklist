@@ -12,5 +12,5 @@ pub_remind = function() {
     text = {
 'This file is a reminder to review the checklist you created (especially before committing to git).'
     })
-  file.edit(file)
+  utils::file.edit(file)
 }

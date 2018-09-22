@@ -1,4 +1,4 @@
-#' @export
+
 Checklist <- R6::R6Class(
   classname = "Checklist",
   public = list(
