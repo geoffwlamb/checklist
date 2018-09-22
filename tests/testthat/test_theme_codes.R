@@ -2,7 +2,6 @@ context("test theme_codes functionality")
 
 # tc_get_bg ----
 test_that("tc_get_bg picks up RStudio theme, if available", {
-  using_rstudio <- Sys.getenv("RStudio")
   if (rstudioapi::isAvailable()) {
     expect_warning(tc_get_bg(), regexp = NA)
   }
