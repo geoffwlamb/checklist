@@ -1,25 +1,25 @@
 Package: checklist
-Version: 0.0.0.9000
 Title: Create Checklists in RStudio
+Version: 0.0.0.9000
+Authors@R: person("Geoff", "Lamb", , "geoffwlamb@gmail.com", c("aut", "cre"))
 Description: This package facilitates the process of making a checklist usable
     directly within RStuio. It generates the checklist as an HTML file and displays
-    it iwthin the Viewer pane. The checklist is updated via the command line.
+    it within the Viewer pane. The checklist is updated via the command line.
     Additional customization options are also provided.
-Authors@R: person("Geoff", "Lamb", , "geoffwlamb@gmail.com", c("aut", "cre"))
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-ByteCompile: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
 URL: https://github.com/geoffwlamb/checklist
 BugReports: https://github.com/geoffwlamb/checklist/issues
+Imports: 
+    beepr (>= 1.3),
+    here (>= 0.1),
+    htmltools (>= 0.3.6),
+    R6 (>= 2.2.2),
+    rstudioapi (>= 0.7)
 Suggests: 
-    covr,
-    testthat
-Imports:
-    beepr,
-    here,
-    htmltools,
-    rstudioapi,
-    R6
+    covr (>= 3.1.0),
+    testthat (>= 2.0.0)
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1

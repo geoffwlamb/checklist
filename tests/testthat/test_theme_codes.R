@@ -1,13 +1,5 @@
 context("test theme_codes functionality")
 
-test_that("theme_codes data is available", {
-  expect_true(exists("theme_codes", where="package:checklist"))
-})
-
-test_that("tc_get_bg is available", {
-  expect_true(exists("tc_get_bg", where="package:checklist"))
-})
-
 # tc_get_bg ----
 test_that("tc_get_bg picks up RStudio theme, if available", {
   using_rstudio <- Sys.getenv("RStudio")
