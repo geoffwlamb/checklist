@@ -2,10 +2,11 @@ Package: checklist
 Title: Create Checklists in RStudio
 Version: 0.0.0.9000
 Authors@R: person("Geoff", "Lamb", , "geoffwlamb@gmail.com", c("aut", "cre"))
-Description: This package facilitates the process of making a checklist usable
-    directly within RStuio. It generates the checklist as an HTML file and displays
-    it within the Viewer pane. The checklist is updated via the command line.
-    Additional customization options are also provided.
+Description: This package creates checklists that can be updated via the command
+    line and viewed withing RStudio's Viewer pane. Functioanlity includes adding,
+    completing, editing, and removing items, as well as customizing the appearance
+    of the checklist itself. Behind the scenes, functions are outputting HTML to a
+    temporary file that gets displayed in the Viewer pane.
 License: MIT + file LICENSE
 URL: https://github.com/geoffwlamb/checklist
 BugReports: https://github.com/geoffwlamb/checklist/issues
@@ -16,7 +17,6 @@ Imports:
     R6 (>= 2.2.2),
     rstudioapi (>= 0.7)
 Suggests: 
-    covr (>= 3.1.0),
     testthat (>= 2.0.0)
 ByteCompile: true
 Encoding: UTF-8

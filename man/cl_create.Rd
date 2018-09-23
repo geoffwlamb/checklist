@@ -20,31 +20,32 @@ completed. Defaults to FALSE for each item.}
 \item{sound}{A Boolean determining whether or not sound should be played
 upon task completion. Defaults to FALSE (no sound).}
 
-\item{background.color}{String containing a hex value representing a color
-or a recognized named color that determines the background color of
-the checklist. Defaults to background color of current RStudio theme.}
+\item{background.color}{String containing a hex value representing
+a color or a recognized named color that determines the
+background color of the checklist. Defaults to background color
+of current RStudio theme.}
 
 \item{text.color}{String containing a hex value representing a color
 or a recognized named color that determines the text color of
 the checklist. Defaults to text color of current RStudio theme.}
 
 \item{complete.color}{String containing a hex value representing a color
-or a recognized named color that determines the color of completed items
-on the checklist. Defaults to green.}
+or a recognized named color that determines the color of completed
+items on the checklist. Defaults to green.}
 
-\item{font.family}{String containing the font family to use for all text on the
-checklist. Defaults to "Georgia, serif".}
+\item{font.family}{String containing the font family to use for
+all text on the checklist. Defaults to "Georgia, serif".}
 }
 \value{
 A Checklist object
 }
 \description{
-This function initializes a checklist option. In the absence of
-any customization, it will attempt to pick reasonable defaults. Customization
-after initialization is possible using the cl_set function.
+This function initializes a checklist option. In the
+absence of any customization, it will attempt to pick reasonable
+defaults. Customization after initialization is possible using
+the cl_set function.
 }
 \examples{
-\dontrun{
 # create a checklist with default settings
 my_checklist <- cl_create()
 
@@ -62,6 +63,5 @@ my_populated_checklist <- cl_create(
   tasks = c("make a checklist", "take over the world"),
   completed = c(TRUE, FALSE)
 )
-}
 
 }

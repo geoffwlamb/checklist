@@ -11,6 +11,7 @@ devtools::install_github("geoffwlamb/checklist")
 ```
 
 ## Quick Start Guide Under Construction
+Main functionality has now been developed if you feel adventurous.
 
 
 

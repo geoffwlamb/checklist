@@ -1,4 +1,4 @@
-# creation functions
+
 pub_init <- function(
                     title = "Checklist",
                     tasks = c(),
@@ -24,35 +24,45 @@ pub_init <- function(
   private$view()
 }
 
-# setters
-pub_set_title <- function(val) {
-  private$title <- val
+pub_set <- function(...) {
+  dots <- list(...)
+  names(dots) <- tolower(names(dots))
+
+  # ensure consistency between tasks and completed is always preserved
+  if ("tasks" %in% names(dots) & "completed" %in% names(dots)) {
+    stopifnot(length(dots[["tasks"]]) == length(dots[["completed"]]))
+  }
+  else if ("tasks" %in% names(dots)) {
+    stopifnot(length(dots[["tasks"]]) == length(private$completed))
+  }
+  else if ("completed" %in% names(dots)) {
+    stopifnot(length(dots[["completed"]]) == length(private$tasks))
+  }
+
+  # ensure file isn't changed
+  if ("file" %in% names(dots)) {
+    warning("cannot change file from this function")
+    dots[["file"]] <- NULL
+  }
+
+  # ensure sound is logical
+  if ("sound" %in% names(dots) & !is.logical(dots[["sound"]])) {
+    warning("argument is 'sound', but not valid (I'll show myself out...)")
+    dots[["sound"]] <- NULL
+  }
+
+  # make changes
+  for (i in seq_along(dots)) {
+    if (!names(dots)[i] %in% names(private)) {
+      warning(paste("ignoring unrecognized parameter:", names(dots)[i]))
+      dots[i] <- NULL
+    }
+    else {
+      private[[names(dots)[i]]] <- dots[[i]]
+    }
+  }
   private$write()
   private$view()
 }
-pub_set_sound <- function(val) {
-  private$sound <- val
-  private$write()
-  private$view()
-}
-pub_set_background_color <- function(val) {
-  private$background.color <- val
-  private$write()
-  private$view()
-}
-pub_set_text_color <- function(val) {
-  private$text.color <- val
-  private$write()
-  private$view()
-}
-pub_set_complete_color <- function(val) {
-  private$complete.color <- val
-  private$write()
-  private$view()
-}
-pub_set_font_family <- function(val) {
-  private$font.family <- val
-  private$write()
-  private$view()
-}
+
 

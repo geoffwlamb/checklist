@@ -14,3 +14,9 @@ pub_remind = function() {
     })
   utils::file.edit(file)
 }
+
+pub_refile = function() {
+  private$file <- tempfile(fileext = ".html")
+  private$write()
+  private$view()
+}
