@@ -11,4 +11,3 @@ test_that("item functions behave expectedly", {
   expect_warning(cl_uncomplete(cl, 2), regexp = NA)
   expect_warning(cl_remove(cl, 2), regexp = NA)
 })
-

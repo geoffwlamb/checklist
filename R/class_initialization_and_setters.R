@@ -1,13 +1,13 @@
 
 pub_init <- function(
-                    title = "Checklist",
-                    tasks = c(),
-                    completed = rep(FALSE, length(tasks)),
-                    sound = FALSE,
-                    background.color = tc_get_bg(),
-                    text.color = tc_get_color(),
-                    complete.color = "green",
-                    font.family = "Georgia, serif") {
+                     title = "Checklist",
+                     tasks = c(),
+                     completed = rep(FALSE, length(tasks)),
+                     sound = FALSE,
+                     background.color = tc_get_bg(),
+                     text.color = tc_get_color(),
+                     complete.color = "green",
+                     font.family = "Georgia, serif") {
   # initialize vars
   private$title <- title
   private$tasks <- tasks
@@ -64,5 +64,3 @@ pub_set <- function(...) {
   private$write()
   private$view()
 }
-
-

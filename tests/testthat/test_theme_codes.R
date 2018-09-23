@@ -30,4 +30,3 @@ test_that("tc_get_color returns default with warning when unknown theme argument
   expect_warning(tc_get_color("bad input"))
   expect_equal(tc_get_color("bad input"), "#000000")
 })
-

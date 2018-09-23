@@ -1,4 +1,5 @@
-theme_codes <- tibble::tribble(~"theme", ~"bg", ~"color",
+theme_codes <- tibble::tribble(
+  ~"theme", ~"bg", ~"color",
   "Ambiance", "#202020", "#E6E1DC",
   "Chaos", "#161616", "#E6E1DC",
   "Chrome", "#FFFFFF", "black",

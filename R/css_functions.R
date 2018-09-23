@@ -1,9 +1,9 @@
 
 css_body <- function(
-  color = "black",
-  background.color = "white",
-  font.family = "Georgia, serif",
-  ...) {
+                     color = "black",
+                     background.color = "white",
+                     font.family = "Georgia, serif",
+                     ...) {
   htmltools::css(
     color = color,
     background.color = background.color,
@@ -31,12 +31,12 @@ css_complete <- function(
 }
 
 css_progress <- function(
-                          height = "1.5em",
-                          width = "100%",
-                          background.color ="#c9c9c9",
-                          position = "relative",
-                          color = "black",
-                          ...) {
+                         height = "1.5em",
+                         width = "100%",
+                         background.color = "#c9c9c9",
+                         position = "relative",
+                         color = "black",
+                         ...) {
   htmltools::css(
     height = height,
     width = width,
@@ -69,10 +69,10 @@ css_progress_before <- function(
 }
 
 css_progress_value <- function(
-                                background.color = "green",
-                                display = "inline-block",
-                                height = "100%",
-                                ...) {
+                               background.color = "green",
+                               display = "inline-block",
+                               height = "100%",
+                               ...) {
   htmltools::css(
     background.color = background.color,
     display = display,

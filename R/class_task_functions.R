@@ -1,8 +1,8 @@
 pub_add_task <- function(task) {
-    private$tasks <- c(private$tasks, task)
-    private$completed <- c(private$completed, FALSE)
-    private$write()
-    private$view()
+  private$tasks <- c(private$tasks, task)
+  private$completed <- c(private$completed, FALSE)
+  private$write()
+  private$view()
 }
 
 pub_edit_task <- function(num, task) {
@@ -24,7 +24,7 @@ pub_edit_task <- function(num, task) {
 
 
 pub_remove_task <- function(num) {
-  #error handling
+  # error handling
   if (!is.numeric(num)) {
     stop("please supply a number")
   }
@@ -88,5 +88,3 @@ pub_uncomplete_task <- function(num) {
   private$write()
   private$view()
 }
-
-

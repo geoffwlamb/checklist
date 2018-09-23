@@ -56,5 +56,3 @@ test_that("expected variable types are preserved", {
   cl <- cl_create()
   expect_warning(cl_set(cl, sound = "BLUE"))
 })
-
-

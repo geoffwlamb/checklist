@@ -1,11 +1,11 @@
 
 html_task <- function(task, completed = FALSE) {
   if (completed) {
-    task <- htmltools::HTML(paste('&#10004', task, '<br'))
+    task <- htmltools::HTML(paste("&#10004", task, "<br"))
     htmltools::p(class = "complete", task)
   }
   else {
-    task <- htmltools::HTML(paste('&#10063', task, '<br>'))
+    task <- htmltools::HTML(paste("&#10063", task, "<br>"))
     htmltools::p(task)
   }
 }
@@ -35,29 +35,29 @@ html_progress <- function(comp_tasks = 0, tot_tasks = 0) {
 }
 
 html_style <- function(
-                        body_css = css_body(),
-                        title_css = css_title(),
-                        complete_css = css_complete(),
-                        progress_css = css_progress(),
-                        progress_before_css = css_progress_before(),
-                        progress_value_css = css_progress_value()) {
+                       body_css = css_body(),
+                       title_css = css_title(),
+                       complete_css = css_complete(),
+                       progress_css = css_progress(),
+                       progress_before_css = css_progress_before(),
+                       progress_value_css = css_progress_value()) {
   htmltools::tagList(
     htmltools::tags$meta(charset = "UTF-8"),
     htmltools::tags$style(
-      paste('body', '{', body_css, '}'),
-      paste('h1.title', '{', title_css, '}'),
-      paste('p.complete', '{', complete_css, '}'),
-      paste('.progress', '{', progress_css,'}'),
-      paste('.progress:before', '{', progress_before_css,'}'),
-      paste('.progress .value', '{', progress_value_css,'}')
+      paste("body", "{", body_css, "}"),
+      paste("h1.title", "{", title_css, "}"),
+      paste("p.complete", "{", complete_css, "}"),
+      paste(".progress", "{", progress_css, "}"),
+      paste(".progress:before", "{", progress_before_css, "}"),
+      paste(".progress .value", "{", progress_value_css, "}")
     )
   )
 }
 
 html_compile <- function(
-                          style = html_style(),
-                          title = html_title(),
-                          progress = html_progress(),
-                          body = htmltools::p("no tasks added")) {
+                         style = html_style(),
+                         title = html_title(),
+                         progress = html_progress(),
+                         body = htmltools::p("no tasks added")) {
   as.character(htmltools::tagList(style, title, progress, body))
 }

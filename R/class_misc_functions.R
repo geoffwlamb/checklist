@@ -1,4 +1,4 @@
-pub_remind = function() {
+pub_remind <- function() {
   # create reminder file
   title_name <- gsub(" ", "_", private$title)
   file <- here::here(
@@ -10,12 +10,13 @@ pub_remind = function() {
   writeLines(
     con = file,
     text = {
-'This file is a reminder to review the checklist you created (especially before committing to git).'
-    })
+      "This file is a reminder to review the checklist you created (especially before committing to git)."
+    }
+  )
   utils::file.edit(file)
 }
 
-pub_refile = function() {
+pub_refile <- function() {
   private$file <- tempfile(fileext = ".html")
   private$write()
   private$view()

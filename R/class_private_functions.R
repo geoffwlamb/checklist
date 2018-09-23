@@ -1,5 +1,5 @@
 
-prv_write = function() {
+prv_write <- function() {
   cl_title <- html_title(private$title)
   cl_progress <- html_progress(
     sum(private$completed),
@@ -10,7 +10,7 @@ prv_write = function() {
       htmltools::tags$p("no tasks added")
     }
     else {
-      cl_list = list()
+      cl_list <- list()
       for (i in seq_along(private$tasks)) {
         cl_list[[i]] <- html_task(
           private$tasks[i],
