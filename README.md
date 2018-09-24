@@ -55,7 +55,7 @@ Now that you have a checklist, let's start making it a bit more useful by adding
 cl_add(my_checklist, text = c("item 1", "item 2", "item 3", "etc."))
 ```
 
-<img src="man/figures/cl_add.png" />
+<img src="man/figures/cl_add.PNG" />
 
 <br>
 
@@ -65,7 +65,7 @@ If you need to adjust the text of an item, you can do so by using <strong>cl\_ed
 cl_edit(my_checklist, at_items = 4, text = "item 4")
 ```
 
-<img src="man/figures/cl_edit.png" />
+<img src="man/figures/cl_edit.PNG" />
 
 <br>
 
@@ -81,7 +81,7 @@ The most satisfying part of any checklist is actually checking items off. Althou
 cl_complete(my_checklist, at_items = 1)
 ```
 
-<img src="man/figures/cl_complete.png" />
+<img src="man/figures/cl_complete.PNG" />
 
 <br>
 
@@ -103,7 +103,7 @@ cl_set(
 )
 ```
 
-<img src="man/figures/cl_set.png" />
+<img src="man/figures/cl_set.PNG" />
 
 <br>
 
