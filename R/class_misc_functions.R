@@ -13,7 +13,7 @@ pub_remind <- function() {
       "This file is a reminder to review the checklist you created (especially before committing to git)."
     }
   )
-  utils::file.edit(file)
+  file.edit(file)
 }
 
 pub_refile <- function() {

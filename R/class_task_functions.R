@@ -31,9 +31,6 @@ pub_remove_task <- function(num) {
   if (length(private$tasks) < num) {
     stop("task does not exist")
   }
-  if (private$completed[[num]] == TRUE) {
-    stop("please remove completion status or add a new task instead")
-  }
   if (num < 1) {
     stop("please supply an index between 1 and the length of the checklist")
   }
@@ -53,7 +50,7 @@ pub_complete_task <- function(num) {
     stop("task does not exist")
   }
   if (private$completed[[num]] == TRUE) {
-    stop("task already completed")
+    warning(paste(private$tasks[[num]], "is already completed"))
   }
 
   # make change
@@ -78,7 +75,7 @@ pub_uncomplete_task <- function(num) {
     stop("task does not exist")
   }
   if (private$completed[[num]] == FALSE) {
-    stop("task is not completed")
+    warning(paste(private$tasks[[num]], "is not completed"))
   }
 
   # make change

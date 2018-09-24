@@ -9,23 +9,24 @@
 \alias{cl_remove}
 \title{Checklist Item Functions}
 \usage{
-cl_add(cl, item)
+cl_add(cl, text)
 
-cl_edit(cl, at_item, item)
+cl_edit(cl, at_items, text)
 
-cl_complete(cl, at_item)
+cl_complete(cl, at_items)
 
-cl_uncomplete(cl, at_item)
+cl_uncomplete(cl, at_items)
 
-cl_remove(cl, at_item)
+cl_remove(cl, at_items)
 }
 \arguments{
 \item{cl}{A checklist object}
 
-\item{item}{A String containing an item to add or edit}
+\item{text}{A String or character vector containing text to add
+or edit}
 
-\item{at_item}{An Integer deciding where to edit, complete,
-uncomplete, or remove an item}
+\item{at_items}{An Integer or Integer vector dectermining where
+to edit, complete, uncomplete, or remove items}
 }
 \description{
 This series of functions allows you to manipulate items

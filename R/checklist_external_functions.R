@@ -23,6 +23,9 @@
 #'     items on the checklist. Defaults to green.
 #' @param font.family String containing the font family to use for
 #'     all text on the checklist. Defaults to "Georgia, serif".
+#' @param remind A logical indicating if a reminder file should be created
+#'     with the checklist. Mostly useful if using a checklist for
+#'     working on a git commit.
 #' @return A Checklist object
 #' @export
 #' @examples
@@ -44,6 +47,9 @@
 #'   completed = c(TRUE, FALSE)
 #' )
 #'
+#' # create a checklist with a reminder file
+#' checklist_with_reminder <- cl_create(remind = TRUE)
+#'
 cl_create <- function(
                       title = "Checklist",
                       tasks = c(),
@@ -52,13 +58,14 @@ cl_create <- function(
                       background.color = tc_get_bg(),
                       text.color = tc_get_color(),
                       complete.color = "green",
-                      font.family = "Georgia, serif") {
+                      font.family = "Georgia, serif",
+                      remind = FALSE) {
   stopifnot(
     length(tasks) == length(completed),
     is.logical(sound)
   )
 
-  Checklist$new(
+  cl <- Checklist$new(
     title = title,
     tasks = tasks,
     completed = completed,
@@ -68,6 +75,12 @@ cl_create <- function(
     complete.color = complete.color,
     font.family = font.family
   )
+
+  if (remind) {
+    cl$remind()
+  }
+
+  cl
 }
 
 #' Load a Saved Checlist
@@ -129,6 +142,26 @@ cl_save <- function(cl, file) {
     file <- paste(file, ".rds", sep = "")
   }
   saveRDS(cl, file)
+}
+
+#' Create a Reminder File for a Checklist
+#' @description This function creates a .txt file that will attempt to
+#'     show up in your project/working directory, as well as the
+#'     editor in RStudio. The primary inspiration for this function was
+#'     to provide an added file that would show up in a git diff to
+#'     prevent commits prior to completing all expected work.
+#' @param cl A checklist object
+#' @export
+#' @examples
+#' # remind at the time of creation
+#' my_reminding_checklist <- cl_create(remind = TRUE)
+#'
+#' # or make the file afterwards
+#' my_basic_checklist <- cl_create()
+#' cl_remind(my_basic_checklist)
+#'
+cl_remind <- function(cl) {
+  cl$remind()
 }
 
 # checklist customization ----
@@ -210,9 +243,10 @@ cl_blend <- function(cl) {
 #'     cl_set with a character vector as the 'tasks' argument and a
 #'     logical vector as the 'completed' argument
 #' @param cl A checklist object
-#' @param item A String containing an item to add or edit
-#' @param at_item An Integer deciding where to edit, complete,
-#'     uncomplete, or remove an item
+#' @param text A String or character vector containing text to add
+#'     or edit
+#' @param at_items An Integer or Integer vector dectermining where
+#'     to edit, complete, uncomplete, or remove items
 #' @examples
 #' # create a checklist
 #' cl <- cl_create()
@@ -239,51 +273,77 @@ NULL
 #' @rdname item-functions
 #' @export
 #'
-cl_add <- function(cl, item) {
+cl_add <- function(cl, text) {
   stopifnot(inherits(cl, "Checklist"))
-  cl$addTask(item)
+
+  for (i in text) {
+    cl$addTask(i)
+  }
 }
 
 #' @rdname item-functions
 #' @export
 #'
-cl_edit <- function(cl, at_item, item) {
+cl_edit <- function(cl, at_items, text) {
   stopifnot(
     inherits(cl, "Checklist"),
-    is.numeric(at_item)
+    is.numeric(at_items),
+    length(at_items) > 0,
+    length(text) > 0,
+    length(at_items) == length(text)
   )
-  cl$editTask(at_item, item)
+  at_items <- sort(unique(round(at_items)))
+  if (length(at_items) != length(text)) {
+    stop("Could not use the supplied vector for at_items. Please ensure that vector contains a unique set of integers.")
+  }
+  for (i in seq_along(at_items)) {
+    cl$editTask(at_items[i], text[i])
+  }
+
 }
 
 #' @rdname item-functions
 #' @export
 #'
-cl_complete <- function(cl, at_item) {
+cl_complete <- function(cl, at_items) {
   stopifnot(
     inherits(cl, "Checklist"),
-    is.numeric(at_item)
+    is.numeric(at_items)
   )
-  cl$completeTask(at_item)
+  at_items <- sort(unique(round(at_items)))
+  for (i in at_items) {
+    cl$completeTask(i)
+  }
 }
 
 #' @rdname item-functions
 #' @export
 #'
-cl_uncomplete <- function(cl, at_item) {
+cl_uncomplete <- function(cl, at_items) {
   stopifnot(
     inherits(cl, "Checklist"),
-    is.numeric(at_item)
+    is.numeric(at_items)
   )
-  cl$uncompleteTask(at_item)
+  at_items <- sort(unique(round(at_items)))
+  for (i in at_items) {
+    cl$uncompleteTask(i)
+  }
+
 }
 
 #' @rdname item-functions
 #' @export
 #'
-cl_remove <- function(cl, at_item) {
+cl_remove <- function(cl, at_items) {
   stopifnot(
     inherits(cl, "Checklist"),
-    is.numeric(at_item)
+    is.numeric(at_items),
+    min(at_items) >= 1
   )
-  cl$removeTask(at_item)
+  at_items <- sort(unique(round(at_items)))
+  for (i in seq_along(at_items)) {
+    cl$removeTask(at_items[i])
+    at_items <- at_items - 1
+  }
 }
+

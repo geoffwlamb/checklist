@@ -9,6 +9,7 @@ test_that("cl_create works with expected values for each argument", {
   expect_warning(cl_create(text.color = "white"), regexp = NA)
   expect_warning(cl_create(complete.color = "orange"), regexp = NA)
   expect_warning(cl_create(font.family = "arial"), regexp = NA)
+  expect_warning(cl_create(remind = TRUE), regexp = NA)
 })
 
 test_that("cl_create handles errors properly", {

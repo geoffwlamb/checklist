@@ -7,7 +7,7 @@
 cl_create(title = "Checklist", tasks = c(), completed = rep(FALSE,
   length(tasks)), sound = FALSE, background.color = tc_get_bg(),
   text.color = tc_get_color(), complete.color = "green",
-  font.family = "Georgia, serif")
+  font.family = "Georgia, serif", remind = FALSE)
 }
 \arguments{
 \item{title}{String containing the name of the checklist.}
@@ -35,6 +35,10 @@ items on the checklist. Defaults to green.}
 
 \item{font.family}{String containing the font family to use for
 all text on the checklist. Defaults to "Georgia, serif".}
+
+\item{remind}{A logical indicating if a reminder file should be created
+with the checklist. Mostly useful if using a checklist for
+working on a git commit.}
 }
 \value{
 A Checklist object
@@ -63,5 +67,8 @@ my_populated_checklist <- cl_create(
   tasks = c("make a checklist", "take over the world"),
   completed = c(TRUE, FALSE)
 )
+
+# create a checklist with a reminder file
+checklist_with_reminder <- cl_create(remind = TRUE)
 
 }
