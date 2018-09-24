@@ -1,3 +1,5 @@
+# checklist 0.1.0
+
 
 * Added quick start guide
 * Updated documentation, README, and news

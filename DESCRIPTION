@@ -1,6 +1,6 @@
 Package: checklist
 Title: Create Checklists in RStudio
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Geoff", "Lamb", , "geoffwlamb@gmail.com", c("aut", "cre"))
 Description: This package creates checklists that can be updated via the command
     line and viewed withing RStudio's Viewer pane. Functioanlity includes adding,
