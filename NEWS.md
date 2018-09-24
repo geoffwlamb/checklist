@@ -1,5 +1,5 @@
 
-
+* Added quick start guide
 * Updated documentation, README, and news
 * Added external functionality to make make usage similar to typical R programming
 * Added Checklist class

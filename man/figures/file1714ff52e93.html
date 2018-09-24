@@ -1,0 +1,14 @@
+<meta charset="UTF-8"/>
+<style>
+  body { color:#FFFFFF;background-color:#002451;font-family:Georgia, serif; }
+  h1.title { text-align:center; }
+  p.complete { color:green;font-weight:bold; }
+  .progress { height:1.5em;width:100%;background-color:#c9c9c9;position:relative;color:black; }
+  .progress:before { content:attr(datalabel);font-size:0.8em;position:absolute;text-align:center;top:5px;left:0;right:0; }
+  .progress .value { background-color:green;display:inline-block;height:100%; }
+</style>
+<h1 class="title">Checklist</h1>
+<div class="progress" datalabel="0 / 0 tasks complete">
+  <span class="value" style="width:0%"></span>
+</div>
+<p>no tasks added</p>
