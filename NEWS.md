@@ -1,3 +1,5 @@
+# checklist 0.1.1
+
 
 * Added automatic detection and handling of temporary file removal
 
