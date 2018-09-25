@@ -298,7 +298,6 @@ cl_edit <- function(cl, at_items, text) {
   for (i in seq_along(at_items)) {
     cl$editTask(at_items[i], text[i])
   }
-
 }
 
 #' @rdname item-functions
@@ -327,7 +326,6 @@ cl_uncomplete <- function(cl, at_items) {
   for (i in at_items) {
     cl$uncompleteTask(i)
   }
-
 }
 
 #' @rdname item-functions
@@ -345,4 +343,3 @@ cl_remove <- function(cl, at_items) {
     at_items <- at_items - 1
   }
 }
-
