@@ -85,9 +85,9 @@ cl_create <- function(
 
 #' Load a Saved Checlist
 #' @description This function loads a previously made checklist that was
-#'     saved (as an .rds file). This is the recommended approach to
-#'     loading checklists, as it will handle the creation and writing
-#'     of a new file for the loaded checklist.
+#'     saved (as an .rds file). It is effectively just a convenience wrapper
+#'     of readRDS that will also open your checklist in the Viewer pane
+#'     automatically.
 #' @param file A String containing the file path of the checklist.
 #'     Needs to be an .rds file
 #' @return A checklist object
@@ -107,7 +107,6 @@ cl_create <- function(
 #'
 cl_load <- function(file) {
   cl <- readRDS(file)
-  cl$refile()
   cl
 }
 

@@ -6,6 +6,7 @@ Checklist <- R6::R6Class(
     initialize = pub_init,
     print = function(...) {
       cat("<Checklist> with", length(private$tasks), "task(s)\n")
+      private$write()
       private$view()
     },
 
@@ -18,8 +19,7 @@ Checklist <- R6::R6Class(
 
     # misc functions ----
     set = pub_set,
-    remind = pub_remind,
-    refile = pub_refile
+    remind = pub_remind
   ),
   private = list(
     # variables ----

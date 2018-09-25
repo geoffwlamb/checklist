@@ -1,5 +1,10 @@
 
 prv_write <- function() {
+  # refile if file was removed
+  if (!file.exists(private$file)) {
+    private$file <- tempfile(fileext = ".html")
+  }
+
   cl_title <- html_title(private$title)
   cl_progress <- html_progress(
     sum(private$completed),

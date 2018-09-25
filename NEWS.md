@@ -1,5 +1,7 @@
-# checklist 0.1.0
 
+* Added automatic detection and handling of temporary file removal
+
+# checklist 0.1.0
 
 * Added quick start guide
 * Updated documentation, README, and news

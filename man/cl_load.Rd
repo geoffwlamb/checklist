@@ -15,9 +15,9 @@ A checklist object
 }
 \description{
 This function loads a previously made checklist that was
-saved (as an .rds file). This is the recommended approach to
-loading checklists, as it will handle the creation and writing
-of a new file for the loaded checklist.
+saved (as an .rds file). It is effectively just a convenience wrapper
+of readRDS that will also open your checklist in the Viewer pane
+automatically.
 }
 \examples{
 # create a checklist
